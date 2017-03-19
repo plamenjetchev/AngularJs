@@ -6,20 +6,20 @@ videoSite.controller('videoSiteController', function ($scope) {
         length: '3:32',
         category: 'Sport',
         subscribers: '3',
-        date: new Date(2014, 12, 15).toDateString(),
+        date: new Date(2014, 12, 15),
         haveSubtitles: false,
         comments: [
             {
                 username: 'Pesho Peshev' ,
                 content: 'Congratulations Nakov',
-                date: new Date (2014, 12, 15, 12, 30, 0).toDateString(),
+                date: new Date (2014, 11, 15, 12, 30, 0).toDateString(),
                 likes: '6',
                 websiteUrl: 'http://pesho.com/'
             },
             {
                 username: 'Plamen Jetchev' ,
                 content: 'Congratulations Nakov',
-                date: new Date(2014, 12, 15, 12, 30, 0).toDateString(),
+                date: new Date(2014, 10, 15, 12, 30, 0).toDateString(),
                 likes: '7',
                 websiteUrl: 'http://funny.com'
             },
@@ -28,10 +28,10 @@ videoSite.controller('videoSiteController', function ($scope) {
     {
         title: 'Lamborgini',
         pictureUrl: "http://wallpaper-gallery.net/images/lamborghini/lamborghini-15.jpg",
-        length: '1.20',
+        length: '1:20',
         category: 'Fun',
         subscribers: '3',
-        date: new Date(2014, 12, 15).toDateString(),
+        date: new Date(2014, 9, 15),
         haveSubtitles: false,
         comments: [
             {
@@ -44,7 +44,7 @@ videoSite.controller('videoSiteController', function ($scope) {
             {
                 username: 'Go6o Go6ev' ,
                 content: 'Congratulations Nakov',
-                date: new Date(2014, 12, 15, 12, 30, 0).toDateString(),
+                date: new Date(2014, 8, 15, 12, 30, 0).toDateString(),
                 likes: '2',
                 websiteUrl: 'http://go6o.com/'
             },           
@@ -53,10 +53,10 @@ videoSite.controller('videoSiteController', function ($scope) {
     {
         title: 'Bugatti',
         pictureUrl: 'http://1car.ir/thumbnails/mark/4%D9%BE%D8%A7%DA%AF%D8%A7%D9%86%DB%8C-%D8%B2%D9%88%D9%86%D8%AF%D8%A7-%D8%A8%D9%88%DA%AF%D8%A7%D8%AA%DB%8C-%D9%88%DB%8C%D8%B1%D9%88%D9%86%20(2).jpg',
-        length: '152:72',
+        length: '15:72',
         category: 'Turbo',
         subscribers: '34',
-        date: new Date(2014, 12, 15).toDateString(),
+        date: new Date(2014, 7, 15),
         haveSubtitles: true,
         comments: [
             {
@@ -81,7 +81,7 @@ videoSite.controller('videoSiteController', function ($scope) {
         length: '3:32',
         category: 'Transport',
         subscribers: '3',
-        date: new Date(2014, 12, 15).toDateString(),
+        date: new Date(2014, 12, 15),
         haveSubtitles: true,
         comments: [
             {
@@ -107,7 +107,7 @@ videoSite.controller('videoSiteController', function ($scope) {
         length: '5:32',
         category: 'Weels',
         subscribers: '12',
-        date: new Date(2014, 10, 11).toDateString(),
+        date: new Date(2014, 10, 11),
         haveSubtitles: false,
         comments: [
             {
@@ -133,7 +133,7 @@ videoSite.controller('videoSiteController', function ($scope) {
         length: '8:37',
         category: 'Auto',
         subscribers: '156',
-        date: new Date(2009, 7, 5).toDateString(),
+        date: new Date(2009, 7, 5),
         haveSubtitles: false,
         comments: [
             {

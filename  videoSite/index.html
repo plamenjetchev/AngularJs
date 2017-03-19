@@ -11,23 +11,35 @@
 <body>
     <div ng-app="videoSite" ng-controller="videoSiteController">
         <div class="container">
-        <div ng-repeat="data in info" style="display: inline-block; margin: 20px 10px;">
-            <p>title: {{data.title}}</p>
+            <div>
+                Order by:
+        <select ng-model="orderBy">
+            <option selected value=>none</option>
+            <option value="title">title</option>
+            <option value="length">length</option>
+            <option value="date">date</option>
+            <option value="likes">likes</option>
+        </select>
+        </div>
+        <div ng-repeat="data in info | orderBy: orderBy" style="display: inline-block; margin: 20px 10px;">
+            <p>Title: {{data.title}}</p>
                 </br>
                 <img ng-src={{data.pictureUrl}} width="200" >
                 <p>length: {{data.length}}</p>
                 <p>category: {{data.category}}</p>
                 <p>subscribers: {{data.subscribers}}</p>
-                <p>date: {{data.date}}</p>
-                <p>haveSubtitles: {{data.haveSubtitles}}</p>
+                <p>{{data.date | date: 'yyyy.MM.dd'}}</p>
+                <td>Subtitles: {{ data.haveSubtitles ? 'Yes' : 'No' }} </td>
+                <p>* * *</p>
                 <p>comments:</p>
                 <span ng-repeat="comment in data.comments">
                   <p>User Name: {{comment.username}}</p>
                   <p>Content: {{comment.content}}</p>
-                  <p>Date: {{comment.date}}</p>
+                  <p>{{comment.date}}</p>
                   <p>Likes: {{comment.likes}}</p>
                   <p>Website:
                       <a href="{{comment.websiteUrl}}">{{comment.username}}</a></p>
+                   <p>_____</p>
              </span>
         </div>
         </div>
