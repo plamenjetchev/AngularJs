@@ -4,49 +4,93 @@
 <head lang="en">
     <meta charset="UTF-8">
     <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
     <title>Video Site</title>
+    <style>
+        .star {
+            margin: 5px;
+        }
+    </style>
 </head>
 
 <body>
     <div ng-app="videoSite" ng-controller="videoSiteController">
         <div class="container">
+            <h3>New Car</h3>
+            <form ng-model="newCarForm">               
+                <p>Title:<br>
+                <input type="text" name="title" ng-model="newCarForm.title" required>
+                </p>
+                <p>Pictiture:<br>
+                <input type="url"name="pictureUrl" ng-model="newCarForm.pictureUrl" required>
+                </p>
+                <p>Category<br>
+                <input type="text" name="category" ng-model="newCarForm.category" required>
+                </p>
+                <p>
+                <input type="submit" ng-click = addCar(newCarForm)>
+                </p>
+                </form>
             <div>
                 Order by:
-        <select ng-model="orderBy">
-            <option selected value=>none</option>
-            <option value="title">title</option>
-            <option value="length">length</option>
-            <option value="date">date</option>
-            <option value="likes">likes</option>
-        </select>
-        </div>
-        <div ng-repeat="data in info | orderBy: orderBy" style="display: inline-block; margin: 20px 10px;">
-            <p>Title: {{data.title}}</p>
+                <select ng-model="Sorting">
+                    <option selected value="">none</option>
+                    <option value="title">title</option>
+                    <option value="length">length</option>
+                    <option value="date">date</option>
+                    <option value="subscribers">subscribers</option>
+                    <option value="likes">likes</option>
+                    </select> Filter By Category:
+                <select ng-model="Filtering.category">
+                    <option selected value="">none</option>
+                    <option value="Sport">Sport</option>
+                    <option value="Fun">Fun</option>
+                    <option value="Turbo">Turbo</option>
+                    <option value="Transport">Transport</option>
+                    <option value="Weels">Weels</option>
+                    <option value="Auto">Auto</option>
+                </select>  Subtitles:
+                    <select ng-model="Filtering.haveSubtitles">
+                        <option selected value="">none</option>
+                        <option value="true">with subs</option>
+                        <option value="false">no subs</option>
+                    </select>  Search: 
+                <input type="text" placeholder="Year" ng-model="Filtering.date">
+
+            </div>
+            <div ng-repeat="data in info | orderBy: Sorting | filter: Filtering track by $index" style="display: inline-block; margin: 20px 10px;">
+                <p>Title: {{data.title}}</p>
                 </br>
-                <img ng-src={{data.pictureUrl}} width="200" >
+                <img ng-src={{data.pictureUrl}} width="200">
                 <p>length: {{data.length}}</p>
                 <p>category: {{data.category}}</p>
                 <p>subscribers: {{data.subscribers}}</p>
                 <p>{{data.date | date: 'yyyy.MM.dd'}}</p>
                 <td>Subtitles: {{ data.haveSubtitles ? 'Yes' : 'No' }} </td>
-                <p>* * *</p>
+                <p>
+                    <span class="star">*</span>
+                    <span class="star">*</span>
+                    <span class="star">*</span>
+                </p>
                 <p>comments:</p>
-                <span ng-repeat="comment in data.comments">
-                  <p>User Name: {{comment.username}}</p>
-                  <p>Content: {{comment.content}}</p>
-                  <p>{{comment.date}}</p>
-                  <p>Likes: {{comment.likes}}</p>
-                  <p>Website:
-                      <a href="{{comment.websiteUrl}}">{{comment.username}}</a></p>
-                   <p>_____</p>
-             </span>
-        </div>
+                <div ng-repeat="comment in data.comments | orderBy: Sorting ">
+                    <p>User Name: {{comment.username}}</p>
+                    <p>Content: {{comment.content}}</p>
+                    <p>{{comment.date}}</p>
+                    <p>Likes: {{comment.likes}}</p>
+                    <p>Website:
+                        <a href="{{comment.websiteUrl}}">{{comment.username}}</a></p>
+                        <p>_____</p>
+                 </div>
+            </div>
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
     <script src="app.js"></script>
     <script src="controllers.js"></script>
+    <script src="service.js"></script>
+
 </body>
 
 </html>
