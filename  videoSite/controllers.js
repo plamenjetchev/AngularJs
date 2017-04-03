@@ -1,5 +1,4 @@
-videoSite.controller('videoSiteController', function ($scope, videoService) {
-    $scope.info = []
+    function vidServ($scope, videoService) {
     $scope.info = videoService.getAllVideos()
     $scope.addCar = function (newCarForm) {
         newCarForm.comments = [
@@ -22,4 +21,4 @@ videoSite.controller('videoSiteController', function ($scope, videoService) {
         $scope.info.push(newCarForm)
     }
 }
-);
+videoSite.controller('videoSiteController', vidServ);

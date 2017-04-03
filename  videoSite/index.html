@@ -18,18 +18,20 @@
     <div ng-app="videoSite" ng-controller="videoSiteController">
         <div class="container">
             <h3>New Car</h3>
-            <form ng-model="newCarForm">               
-                <p>Title:<br>
-                <input type="text" name="title" ng-model="newCarForm.title" required>
+            Fields with asterisks are required
+            <form name="newCarForm">               
+                <p>Title *:<br>
+                <input type="text" name="title" ng-model="newCar.title" required>
                 </p>
-                <p>Pictiture:<br>
-                <input type="url"name="pictureUrl" ng-model="newCarForm.pictureUrl" required>
+                <p>Pictiture *:<br>
+                <input type="url" name="pictureUrl" ng-model="newCar.pictureUrl" required>
                 </p>
-                <p>Category<br>
-                <input type="text" name="category" ng-model="newCarForm.category" required>
+                <span ng-show="newCarForm.pictureUrl.$error.url">Not Valid Url</span>
+                <p>Category *:<br>
+                <input type="text" name="category" ng-model="newCar.category" required>
                 </p>
                 <p>
-                <input type="submit" ng-click = addCar(newCarForm)>
+                <input type="submit" ng-click = addCar(newCar) ng-disabled="newCarForm.$invalid">
                 </p>
                 </form>
             <div>
