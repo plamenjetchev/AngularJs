@@ -6,7 +6,6 @@ angular.module('myApp', [
   'ngSanitize',
   'ngCookies',
   'myApp.view1',
-  'myApp.view2',
   'myApp.version',
   'myApp.users'
 ]).
