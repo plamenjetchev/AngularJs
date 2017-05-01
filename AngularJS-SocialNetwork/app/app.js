@@ -1,14 +1,10 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('myApp', [
+angular.module('socialNetwork', [
   'ngRoute',
-  'ngSanitize',
-  'ngCookies',
-  'myApp.view1',
-  'myApp.version',
-  'myApp.users'
+  'socialNetwork.home'
 ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/view1'});
+  $routeProvider.otherwise({redirectTo: '/'});
 }]);
