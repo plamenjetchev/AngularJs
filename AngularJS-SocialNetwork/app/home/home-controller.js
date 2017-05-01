@@ -5,6 +5,13 @@ angular.module('socialNetwork.home', [])
             controller: 'HomeCtrl'
         })
     }])
-    .controller('HomeCtrl', ['$scope', function($scope) {
-        $scope.hello = 'ZDRASTI';
+    .controller('HomeCtrl', [
+        '$scope',
+    function($scope) {
+        $scope.login = function (loguser) {
+            console.log(loguser) 
+        };
+        $scope.register = function (reguser) {
+            console.log(reguser)   
+        };
     }]);
