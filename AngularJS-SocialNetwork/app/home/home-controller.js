@@ -1,4 +1,6 @@
-angular.module('socialNetwork.home', [])
+angular.module('socialNetwork.home', [
+    'socialNetwork.users.authentication',
+])
     .config(['$routeProvider', function($routeProvider){
         $routeProvider.when('/', {
             templateUrl: 'app/home/home.html',
@@ -7,11 +9,16 @@ angular.module('socialNetwork.home', [])
     }])
     .controller('HomeCtrl', [
         '$scope',
-    function($scope) {
+        'auth',
+    function($scope, auth ) {
         $scope.login = function (loguser) {
-            console.log(loguser) 
+            auth.loginUser(loguser)
+
         };
         $scope.register = function (reguser) {
-            console.log(reguser)   
+            auth.registerUser(reguser)
+            .then(function(registeredUser) {
+                console.log(registeredUser);
+            })
         };
     }]);
